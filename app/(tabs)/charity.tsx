@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from '@/constants/Colors';
 
-export default function HomeScreen() {
+export default function CharityScreen() {
   return (
     <View style={{ backgroundColor: Colors.main.primaryBlue, flex: 1 }}>
-      <Text>Home</Text>
+      <Text>Charity</Text>
     </View>
   );
 }

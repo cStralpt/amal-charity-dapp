@@ -12,23 +12,35 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarShowLabel: false,
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: Colors.main.primaryBlue,
+          shadowColor: Colors.main.primaryBlue,
+          borderTopColor: Colors.main.primaryBlue
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <TabBarIcon name={"home"} isActive={focused} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="charity"
         options={{
-          title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={"charity"} isActive={focused} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="wallet"
+        options={{
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={"wallet"} isActive={focused} />
           ),
         }}
       />
