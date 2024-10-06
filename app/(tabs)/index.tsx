@@ -52,9 +52,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
-    padding: 5, borderRadius: 5
+    padding: 5,
+    borderRadius: 5
   },
   cardActive: {
-    backgroundColor: "rgba(255,255,255,0.2)"
+    backgroundColor: "rgba(255,255,255,0.2)",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.5)"
   }
 });
