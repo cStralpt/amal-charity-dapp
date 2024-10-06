@@ -1,29 +1,60 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '@/constants/Colors';
+import { ChevronRight } from 'lucide-react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   return (
-    <View style={{ backgroundColor: Colors.main.primaryBlue, flex: 1 }}>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      <SafeAreaView>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {
+            Array.from({ length: 15 }).map(d => (
+              <Pressable style={({ pressed }) => [styles.cardContainer, pressed && styles.cardActive]}>
+                <View style={styles.imgContainer} />
+                <View>
+                  <Text style={styles.cardTitle}>Humanity Aid</Text>
+                  <Text style={styles.cardContent}>Collected funds: $5044</Text>
+                </View>
+                <ChevronRight size={23} color={Colors.main.skyMilk} style={{ marginLeft: "auto", marginBottom: "auto" }} />
+              </Pressable>
+            ))
+          }
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    backgroundColor: Colors.main.primaryBlue,
+    flex: 1,
+    paddingHorizontal: 20
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  imgContainer: {
+    borderRadius: 5,
+    height: 80,
+    width: 80,
+    backgroundColor: Colors.main.armyGreen
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  cardTitle: {
+    fontWeight: "700",
+    color: Colors.main.skyMilk,
+    fontSize: 16
   },
+  cardContent: {
+    fontWeight: "300",
+    color: Colors.main.skyMilk,
+    fontSize: 16
+  },
+  cardContainer: {
+    flexDirection: "row",
+    gap: 10,
+    alignItems: "center",
+    padding: 5, borderRadius: 5
+  },
+  cardActive: {
+    backgroundColor: "rgba(255,255,255,0.2)"
+  }
 });
