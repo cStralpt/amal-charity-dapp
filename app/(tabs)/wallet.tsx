@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import UserWallet from '@/components/wallet/UserWallet';
+import CreateWallet from '@/components/wallet/CreateWallet';
 
 export default function WalletScreen() {
   return (
     <View style={styles.container}>
-      <UserWallet />
+      {/* <UserWallet /> */}
+      <CreateWallet />
     </View>
   );
 }
