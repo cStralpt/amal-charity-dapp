@@ -5,10 +5,13 @@ export default function CharityScreen() {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder='charity program title'
+        placeholder='program name'
         style={styles.titleInput} />
       <TextInput
-        placeholder='charity description'
+        placeholder='charity target funds'
+        style={styles.titleInput} />
+      <TextInput
+        placeholder='description'
         textAlignVertical="top"
         numberOfLines={4}
         style={styles.descriptionInput}
