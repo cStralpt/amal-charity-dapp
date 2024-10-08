@@ -2,15 +2,19 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import { ChevronRight } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <ScrollView showsVerticalScrollIndicator={false}>
           {
             Array.from({ length: 15 }).map(d => (
-              <Pressable style={({ pressed }) => [styles.cardContainer, pressed && styles.cardActive]}>
+              <Pressable
+                onPress={() => router.push("/charityDetail")}
+                style={({ pressed }) => [styles.cardContainer, pressed && styles.cardActive]}>
                 <View style={styles.imgContainer} />
                 <View>
                   <Text style={styles.cardTitle}>Humanity Aid</Text>

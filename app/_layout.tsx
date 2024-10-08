@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Colors } from '@/constants/Colors';
+import { MoveLeft } from 'lucide-react-native';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -30,6 +32,14 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="charityDetail" options={{
+          headerBlurEffect: "prominent",
+          headerStyle: { backgroundColor: Colors.main.primaryBlue },
+          headerShadowVisible: false,
+          headerTitle: "Charity Detail",
+          headerTitleStyle: { color: Colors.main.skyMilk },
+          headerLeft: () => (<MoveLeft size={23} color={Colors.main.skyMilk} />)
+        }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
